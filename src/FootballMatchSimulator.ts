@@ -85,7 +85,7 @@ export default class FootballMatchSimulator {
         const dobuleLinePrinter = new DobuleLinePrinter();
         dobuleLinePrinter.print();
 
-        this.comment(`🏁 Kick-off! Match started between ${this.teamA.name} and ${this.teamB.name}!`, 0);
+        this.comment(`🏁 Kick-off! Match started between ${this.teamA.name} and ${this.teamB.name}! 🏁`, 0);
         dobuleLinePrinter.print();
 
         for (let i = 0; i < turns; i++) {
@@ -105,7 +105,7 @@ export default class FootballMatchSimulator {
         const scoreA = this.getTeamScore(this.teamA);
         const scoreB = this.getTeamScore(this.teamB);
 
-        this.comment("🏁 Full Time!", 90);
+        this.comment("🏁 Full Time! 🏁", 90);
         this.comment(`Final Score: ${this.teamA.name} [${scoreA}] vs [${scoreB}] ${this.teamB.name}`, 90);
     }
 
