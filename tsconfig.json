@@ -52,9 +52,9 @@
     "rootDir": "./src",                          /* Specify the root folder of your source files */
     "outDir": "./dist",                          /* Redirect output structure to the directory */
     "strict": true,                              /* Enable all strict type-checking options */
-    "esModuleInterop": true,                    /* Emit additional JavaScript for ease of importing */
+    "esModuleInterop": true,                     /* Emit additional JavaScript for ease of importing */
     "skipLibCheck": true,                        /* Skip type checking of declaration files */
-    "forceConsistentCasingInFileNames": true     /* Disallow inconsistently-cased references to files */
+    "forceConsistentCasingInFileNames": true,    /* Disallow inconsistently-cased references to files */
   },
   "include": ["src/**/*"]                        /* Compile only files in the src folder */
 }
