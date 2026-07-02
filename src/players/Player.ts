@@ -7,6 +7,18 @@ export default abstract class Player {
         private specialAbility: SpecialAbility
     ) { }
 
+    public getName(): string {
+        return this.name;
+    }
+
+    public getPosition(): string {
+        return this.position;
+    }
+
+    public getSpecialAbility(): SpecialAbility {
+        return this.specialAbility;
+    }
+
     public run(): string {
         return `${this.name} is running.`;
     }

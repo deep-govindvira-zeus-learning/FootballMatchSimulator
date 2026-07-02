@@ -11,4 +11,16 @@ export default class Goal {
             throw new Error("Invalid match minute for a goal event.");
         }
     }
+
+    public getMinute(): number {
+        return this.minute;
+    }
+
+    public getScorer(): Player {
+        return this.scorer;
+    }
+
+    public getTeam(): Team {
+        return this.team;
+    }
 }

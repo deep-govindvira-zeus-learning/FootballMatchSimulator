@@ -1,7 +1,5 @@
-import type Commentary from "./Commentary";
+import Commentary from "./Commentary";
 
-export default class EnglishCommentary implements Commentary {
-    comment(message: string): void {
-        console.log(`[🎙️ ENG COMMENTARY]: ${message}`);
-    }
+export default class EnglishCommentary extends Commentary {
+    constructor(language: string) { super(language); }
 }

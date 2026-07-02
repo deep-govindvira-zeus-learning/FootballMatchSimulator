@@ -9,6 +9,10 @@ export default class Team {
 
     constructor(public readonly name: string) { }
 
+    public getName(): string {
+        return this.name;
+    }
+
     public addPlayer(player: Player): void {
         this.players.push(player);
     }
