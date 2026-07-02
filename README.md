@@ -61,3 +61,38 @@ npx tsc
 ```
 node dist/index.js
 ```
+
+### Sample output
+
+```bash
+==============================================================================================================================
+[🎙️  ENG COMMENTARY]: [⌚ 0] 🏁 Kick-off! Match started between Argentina and France! 🏁
+==============================================================================================================================
+[🎙️  ENG COMMENTARY]: [⌚ 22] France building up play. Dayot Upamecano is running.
+[🎙️  ENG COMMENTARY]: [⌚ 22] Dayot Upamecano makes a pass.
+[🎙️  ENG COMMENTARY]: [⌚ 22] Aurélien Tchouaméni makes a brilliant long pass!
+[🎙️  ENG COMMENTARY]: [⌚ 22] Interception! Nahuel Molina performs a strong tackle!
+------------------------------------------------------------------------------------------------------------------------------
+[🎙️  ENG COMMENTARY]: [⌚ 45] Argentina building up play. Nicolás Tagliafico is running.
+[🎙️  ENG COMMENTARY]: [⌚ 45] Nicolás Tagliafico makes a pass.
+[🎙️  ENG COMMENTARY]: [⌚ 45] Enzo Fernández makes a brilliant long pass!
+[🎙️  ENG COMMENTARY]: [⌚ 45] Lionel Messi shoots towards the goal!
+[🎙️  ENG COMMENTARY]: [⌚ 45] ⚽ GOAL!!! Argentina scores via Lionel Messi! Lionel Messi celebrates!
+[🎙️  ENG COMMENTARY]: [⌚ 45] Live Score: Argentina 1 - 0 France
+------------------------------------------------------------------------------------------------------------------------------
+[🎙️  ENG COMMENTARY]: [⌚ 67] France building up play. Jules Koundé is running.
+[🎙️  ENG COMMENTARY]: [⌚ 67] Jules Koundé makes a pass.
+[🎙️  ENG COMMENTARY]: [⌚ 67] Aurélien Tchouaméni makes a brilliant long pass!
+[🎙️  ENG COMMENTARY]: [⌚ 67] The shot sails over the crossbar.
+------------------------------------------------------------------------------------------------------------------------------
+[🎙️  ENG COMMENTARY]: [⌚ 90] Argentina building up play. Nicolás Tagliafico is running.
+[🎙️  ENG COMMENTARY]: [⌚ 90] Nicolás Tagliafico makes a pass.
+[🎙️  ENG COMMENTARY]: [⌚ 90] Enzo Fernández makes a brilliant long pass!
+[🎙️  ENG COMMENTARY]: [⌚ 90] Interception! William Saliba performs a strong tackle!
+------------------------------------------------------------------------------------------------------------------------------
+[🎙️  ENG COMMENTARY]: [⌚ 90] 🏁 Full Time! 🏁
+[🎙️  ENG COMMENTARY]: [⌚ 90] Final Score: Argentina [1] vs [0] France
+[🎙️  ENG COMMENTARY]: [⌚ 90] Lionel Messi (Argentina)
+[🎙️  ENG COMMENTARY]: [⌚ 90] 🏆 Winner: Argentina!
+==============================================================================================================================
+```
