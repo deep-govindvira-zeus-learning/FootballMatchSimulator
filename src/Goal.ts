@@ -3,9 +3,9 @@ import type Team from "./Team";
 
 export default class Goal {
     constructor(
-        public readonly minute: number,
-        public readonly scorer: Player,
-        public readonly team: Team,
+        private readonly minute: number,
+        private readonly scorer: Player,
+        private readonly team: Team,
     ) {
         if (minute < 0 || minute > 120) {
             throw new Error("Invalid match minute for a goal event.");

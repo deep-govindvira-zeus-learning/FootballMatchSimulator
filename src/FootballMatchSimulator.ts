@@ -2,6 +2,10 @@ import Commentary from "./commentary/Commentary";
 import Goal from "./Goal";
 import DobuleLinePrinter from "./lineprinters/DoubleLinePrinter";
 import SingleLinePrinter from "./lineprinters/SingleLinePrinter";
+import Defender from "./players/Defender";
+import Goalkeeper from "./players/Goalkeeper";
+import Midfielder from "./players/Midfielder";
+import Striker from "./players/Stricker";
 import type Team from "./Team";
 
 export default class FootballMatchSimulator {
@@ -23,7 +27,7 @@ export default class FootballMatchSimulator {
     }
 
     private getTeamScore(team: Team): number {
-        return this.goals.filter(goal => goal.team === team).length;
+        return this.goals.filter(goal => goal.getTeam() === team).length;
     }
 
     private getDisplayScore(): string {
@@ -37,7 +41,7 @@ export default class FootballMatchSimulator {
 
         const roll = Math.random();
         if (roll < 0.4) {
-            const defender = defendingTeam.getRandomDefender();
+            const defender = defendingTeam.getRandomPlayerByRole(Defender);
             this.comment(`Interception! ${defender.performSpecialAction()}`, currentMinute);
         } else if (roll < 0.8) {
             this.executeAttack(currentMinute, attackingTeam, defendingTeam);
@@ -56,27 +60,27 @@ export default class FootballMatchSimulator {
     }
 
     private executeBuildUp(currentMinute: number, attackingTeam: Team): void {
-        const defenderOfAttackingTeam = attackingTeam.getRandomDefender();
-        const midfielder = attackingTeam.getRandomMidfielder();
+        const defenderOfAttackingTeam = attackingTeam.getRandomPlayerByRole(Defender);
+        const midfielder = attackingTeam.getRandomPlayerByRole(Midfielder);
 
-        this.comment(`${attackingTeam.name} building up play. ${defenderOfAttackingTeam.run()}`, currentMinute);
+        this.comment(`${attackingTeam.getName()} building up play. ${defenderOfAttackingTeam.run()}`, currentMinute);
         this.comment(`${defenderOfAttackingTeam.pass()}`, currentMinute);
         this.comment(`${midfielder.performSpecialAction()}`, currentMinute);
     }
 
     private executeAttack(currentMinute: number, attackingTeam: Team, defendingTeam: Team): void {
-        const striker = attackingTeam.getRandomStriker();
+        const striker = attackingTeam.getRandomPlayerByRole(Striker);
         this.comment(`${striker.performSpecialAction()}`, currentMinute);
 
         if (Math.random() > 0.5) {
             const goal = new Goal(currentMinute, striker, attackingTeam);
             this.addGoals(goal);
 
-            this.comment(`⚽ GOAL!!! ${attackingTeam.name} scores via ${striker.name}! ${striker.celebrate()}`, currentMinute);
+            this.comment(`⚽ GOAL!!! ${attackingTeam.getName()} scores via ${striker.getName()}! ${striker.celebrate()}`, currentMinute);
             this.comment(`Live Score: ${this.getDisplayScore()}`, currentMinute);
         } else {
-            const defender = defendingTeam.getRandomDefender();
-            const gk = defendingTeam.getRandomGoalkeeper() || defender;
+            const defender = defendingTeam.getRandomPlayerByRole(Defender);
+            const gk = defendingTeam.getRandomPlayerByRole(Goalkeeper) || defender;
             this.comment(`🧤 What a stop! ${gk.performSpecialAction()}`, currentMinute);
         }
     }
@@ -85,7 +89,7 @@ export default class FootballMatchSimulator {
         const dobuleLinePrinter = new DobuleLinePrinter();
         dobuleLinePrinter.print();
 
-        this.comment(`🏁 Kick-off! Match started between ${this.teamA.name} and ${this.teamB.name}! 🏁`, 0);
+        this.comment(`🏁 Kick-off! Match started between ${this.teamA.getName()} and ${this.teamB.getName()}! 🏁`, 0);
         dobuleLinePrinter.print();
 
         for (let i = 0; i < turns; i++) {
@@ -98,7 +102,7 @@ export default class FootballMatchSimulator {
     }
 
     public commentWinnerTeamName(winnerTeamName: Team): void {
-        this.comment(`🏆 Winner: ${winnerTeamName.name}!`, 90);
+        this.comment(`🏆 Winner: ${winnerTeamName.getName()}!`, 90);
     }
 
     public commentFinalScore(): void {
@@ -106,13 +110,13 @@ export default class FootballMatchSimulator {
         const scoreB = this.getTeamScore(this.teamB);
 
         this.comment("🏁 Full Time! 🏁", 90);
-        this.comment(`Final Score: ${this.teamA.name} [${scoreA}] vs [${scoreB}] ${this.teamB.name}`, 90);
+        this.comment(`Final Score: ${this.teamA.getName()} [${scoreA}] vs [${scoreB}] ${this.teamB.getName()}`, 90);
     }
 
     public commentAllGoals(): void {
         if (this.goals.length > 0) {
             this.goals.forEach(goal => {
-                this.comment(`${goal.scorer.name} (${goal.team.name})`, 90);
+                this.comment(`${goal.getScorer().getName()} (${goal.getTeam().getName()})`, 90);
             });
         }
     }

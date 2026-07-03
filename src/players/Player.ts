@@ -4,7 +4,7 @@ export default abstract class Player {
     constructor(
         public readonly name: string,
         public readonly position: string,
-        private specialAbility: SpecialAbility
+        private readonly specialAbility: SpecialAbility
     ) { }
 
     public getName(): string {
